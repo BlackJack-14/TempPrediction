@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 
 # --- Load model and scaler ---
 try:
-    model = joblib.load('model.pkl')
-    scaler = joblib.load('scaler.pkl')
+    model = joblib.load('./model.pkl')
+    scaler = joblib.load('./scaler.pkl')
 except FileNotFoundError:
     st.error("Error: Model or Scaler file not found. Please ensure they are in the correct location.")
 
