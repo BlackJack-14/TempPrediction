@@ -137,8 +137,8 @@ if predict_button:
         predicted_temp = model.predict(input_data_scaled)[0] + 2  # +2 for manual correction
 
         # Simulate a delay (optional, for realism)
-        # import time
-        # time.sleep(1)
+        import time
+        time.sleep(2)
 
     st.success(f"Predicted Temperature: **{predicted_temp:.2f} °C**")
 
