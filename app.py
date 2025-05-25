@@ -131,10 +131,15 @@ with st.form("prediction_form", clear_on_submit=False):
 
 # --- Prediction Section ---
 if predict_button:
-    input_data = np.array([[dew_point, humidity, wind_speed, precipitation_cm, hour, day, month]])
-    input_data_scaled = scaler.transform(input_data)
-    predicted_temp = model.predict(input_data_scaled)[0] + 2  # +2 for manual correction
+    with st.spinner('Predicting temperature...'):
+        input_data = np.array([[dew_point, humidity, wind_speed, precipitation_cm, hour, day, month]])
+        input_data_scaled = scaler.transform(input_data)
+        predicted_temp = model.predict(input_data_scaled)[0] + 2  # +2 for manual correction
 
-    # --- Show Prediction Result ---
+        # Simulate a delay (optional, for realism)
+        # import time
+        # time.sleep(1)
+
     st.success(f"Predicted Temperature: **{predicted_temp:.2f} °C**")
+
 
